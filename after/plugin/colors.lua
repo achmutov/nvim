@@ -7,6 +7,7 @@ function ColorMyPencils(color)
     -- vim.cmd [[
     --     highlight SignColumn guibg=NONE
     -- ]]
+    vim.api.nvim_command('hi Visual term=reverse cterm=reverse guibg=Black')
 	
 end
 
