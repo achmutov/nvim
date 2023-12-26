@@ -10,6 +10,9 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'xiyaowong/transparent.nvim'
 
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
         -- or                            , branch = '0.1.x',
