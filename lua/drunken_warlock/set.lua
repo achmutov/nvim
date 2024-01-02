@@ -8,6 +8,21 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
+-- Two tab indentation
+vim.api.nvim_exec([[
+augroup IndentationSettings
+    autocmd!
+    let two_tab_ext = ['r', 'js', 'html', 'css']
+
+    for ext in two_tab_ext
+        execute 'autocmd BufRead,BufNewFile *.' . ext . 
+                \ ' setlocal shiftwidth=2' .
+                \ ' tabstop=2' .
+                \ ' softtabstop=2'
+    endfor
+augroup END
+]], false)
+
 -- vim.opt.wrap = false
 
 vim.opt.swapfile = false
