@@ -21,7 +21,6 @@ return require('packer').startup(function(use)
    
     -- use 'Mofiqul/dracula.nvim'
     use 'AlexvZyl/nordic.nvim'
-    vim.cmd('colorscheme nordic')
    
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('theprimeagen/harpoon')
