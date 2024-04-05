@@ -1,3 +1,1 @@
-    vim.cmd [[
-        AirlineTheme bubblegum
-    ]]
+vim.cmd [[ AirlineTheme bubblegum ]]

@@ -15,7 +15,7 @@ augroup IndentationSettings
     let two_tab_ext = ['r', 'js', 'html', 'css']
 
     for ext in two_tab_ext
-        execute 'autocmd BufRead,BufNewFile *.' . ext . 
+        execute 'autocmd BufRead,BufNewFile *.' . ext .
                 \ ' setlocal shiftwidth=2' .
                 \ ' tabstop=2' .
                 \ ' softtabstop=2'
