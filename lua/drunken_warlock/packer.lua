@@ -33,6 +33,12 @@ return require('packer').startup(function(use)
     use 'theprimeagen/harpoon'
     use 'mbbill/undotree'
 
+    -- Markdown render
+    use "ellisonleao/glow.nvim"
+
+    -- LaTeX
+    use 'lervag/vimtex'
+
     -- LSP - Holy Grail
     use {
         'VonHeikemen/lsp-zero.nvim',
