@@ -12,7 +12,7 @@ vim.opt.smartindent = true
 vim.api.nvim_exec([[
 augroup IndentationSettings
     autocmd!
-    let two_tab_ext = ['r', 'js', 'html', 'css']
+    let two_tab_ext = ['R', 'r', 'js', 'html', 'css']
 
     for ext in two_tab_ext
         execute 'autocmd BufRead,BufNewFile *.' . ext .
