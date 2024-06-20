@@ -8,7 +8,15 @@ require('gitsigns').setup {
             vim.keymap.set(mode, l, r, opts)
         end
 
+        local function gitsigns_visual_op(op)
+            return function()
+                return require('gitsigns')[op]({ vim.fn.line("."), vim.fn.line("v") })
+            end
+        end
+
         map('n', '<leader>tb', gs.toggle_current_line_blame)
+        map('v', '<leader>hs', gitsigns_visual_op"stage_hunk")
+        map('v', '<leader>hu', gitsigns_visual_op"undo_stage_hunk")
     end
 }
 

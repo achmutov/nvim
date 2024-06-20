@@ -11,6 +11,8 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>pp", "\"+p")
 vim.keymap.set("n", "<leader>PP", "\"+P")
 
+vim.keymap.set("n", "<leader>te", ":!")
+
 vim.keymap.set("n", "<leader>sc", function()
     if vim.o.scrolloff == 99999 then
         vim.opt.scrolloff = 8
