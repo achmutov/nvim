@@ -8,8 +8,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
 vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>pp", "\"+p")
-vim.keymap.set("n", "<leader>PP", "\"+P")
+vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "<leader>te", ":!")
 
