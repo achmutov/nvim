@@ -47,3 +47,5 @@ vim.opt.list = true
 vim.opt.listchars:append({ trail = "◦" })
 
 vim.opt.guicursor = ""
+
+vim.g.netrw_liststyle = 3
