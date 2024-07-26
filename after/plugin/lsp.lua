@@ -59,6 +59,8 @@ end)
 
 lsp.setup()
 
+vim.keymap.set("n", "<leader>lsp", ":LspR<CR>")
+
 vim.diagnostic.config({
     virtual_text = true
 })
