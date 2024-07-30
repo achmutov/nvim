@@ -21,13 +21,13 @@ require('gitsigns').setup {
 }
 
 vim.cmd [[
-    highlight GitSignsAdd guibg=NONE
+    highlight GitSignsAdd guibg=NONE guifg=#b8bb26
 ]]
 
 vim.cmd [[
-    highlight GitSignsChange guibg=NONE
+    highlight GitSignsChange guibg=NONE guifg=#83a598
 ]]
 
 vim.cmd [[
-    highlight GitSignsDelete guibg=NONE
+    highlight GitSignsDelete guibg=NONE guifg=#fb4934
 ]]

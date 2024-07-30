@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
     -- looks and feels
     use 'AlexvZyl/nordic.nvim'
     use 'xiyaowong/transparent.nvim'
+    use { "ellisonleao/gruvbox.nvim" }
 
     -- find
     use {
