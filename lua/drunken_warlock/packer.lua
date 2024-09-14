@@ -62,6 +62,12 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- Documentation
+    use {
+        "danymat/neogen",
+        -- tag = "*"
+    }
+
     -- auto things
     use "Pocco81/auto-save.nvim"
     use {

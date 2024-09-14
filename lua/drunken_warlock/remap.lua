@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>sc", function()
 end, { noremap = true })
 
 
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>d", ":!cd %:p:h<CR>:cd %:p:h<CR>")
 
