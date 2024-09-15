@@ -20,14 +20,7 @@ require("gitsigns").setup {
     end
 }
 
-vim.cmd [[
-    highlight GitSignsAdd guibg=NONE guifg=#b8bb26
-]]
-
-vim.cmd [[
-    highlight GitSignsChange guibg=NONE guifg=#83a598
-]]
-
-vim.cmd [[
-    highlight GitSignsDelete guibg=NONE guifg=#fb4934
-]]
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "NONE", fg = "#b8bb26" })
+vim.api.nvim_set_hl(0, "GitSignsChange", { bg = "NONE", fg = "#83a598" })
+vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = "NONE", fg = "#fb4934" })
