@@ -14,11 +14,14 @@ require("gitsigns").setup {
             end
         end
 
-        map("n", "<leader>tb", gs.toggle_current_line_blame)
-        map("v", "<leader>hs", gitsigns_visual_op"stage_hunk")
-        map("v", "<leader>hu", gitsigns_visual_op"undo_stage_hunk")
+        map('n', '<leader>hs', gs.stage_hunk)
+        map('v', '<leader>hs', function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
+        map('n', '<leader>hu', gs.undo_stage_hunk)
+        map('n', '<leader>hp', gs.preview_hunk)
     end
 }
+
+vim.opt.signcolumn = "yes:2"
 
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "NONE", fg = "#b8bb26" })
