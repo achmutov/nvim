@@ -1,1 +1,1 @@
-require("drunken_warlock")
+require("core")

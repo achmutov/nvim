@@ -9,19 +9,21 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Two tab indentation
-vim.api.nvim_exec([[
-augroup IndentationSettings
-    autocmd!
-    let two_tab_ext = ['R', 'r', 'js', 'html', 'css']
+local two_space_filetypes = { 'r', 'javascript', 'html', 'css', 'rmd' }
+local indent_group = vim.api.nvim_create_augroup('IndentationSettings', { clear = true })
 
-    for ext in two_tab_ext
-        execute 'autocmd BufRead,BufNewFile *.' . ext .
-                \ ' setlocal shiftwidth=2' .
-                \ ' tabstop=2' .
-                \ ' softtabstop=2'
-    endfor
-augroup END
-]], false)
+-- Apply indentation settings based on filetypes
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+    group = indent_group,
+    pattern = two_space_filetypes,
+    callback = function()
+        -- Use vim.opt_local to ensure settings are buffer-local
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.expandtab = true  -- Ensure tabs are converted to spaces
+    end
+})
 
 -- vim.opt.wrap = false
 
