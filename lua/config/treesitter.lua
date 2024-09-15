@@ -1,20 +1,17 @@
 require("nvim-treesitter.configs").setup {
-    -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    -- ensure_installed = { "python", "typescript", "c", "lua", "vim", "vimdoc", "query" },
-
-    -- Install parsers synchronously (only applied to `ensure_installed`)
+    ensure_installed = {
+        "c",
+        "cpp",
+        "python",
+        "rust",
+        "lua",
+    },
     sync_install = false,
-
-    -- Automatically install missing parsers when entering buffer
-    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
     auto_install = true,
-
-    -- List of parsers to ignore installing (for "all")
-    ignore_install = { "javascript" },
-
     highlight = {
         enable = true,
 
+        -- Disable for big files
         disable = function(lang, buf)
             local max_filesize = 100 * 1024 -- 100 KB
             local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
@@ -23,6 +20,6 @@ require("nvim-treesitter.configs").setup {
             end
         end,
 
-        additional_vim_regex_highlighting = true,
+        additional_vim_regex_highlighting = false,
     },
 }
