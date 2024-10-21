@@ -46,12 +46,27 @@ local c = {
             }
         end,
         left_sep = "block",
-        right_sep = "block",
     },
     gitBranch = {
         provider = "git_branch",
         hl = {
             fg = "peanut",
+            bg = "darkblue",
+            style = "bold",
+        },
+        left_sep = "block",
+        right_sep = "block",
+    },
+    location = {
+        provider = function()
+            navic = package.loaded["nvim-navic"]
+            if navic.is_available() then
+                return navic.get_location()
+            end
+            return ""
+        end,
+        hl = {
+            fg = "purple",
             bg = "darkblue",
             style = "bold",
         },
@@ -92,7 +107,7 @@ local c = {
         provider = {
             name = "file_info",
             opts = {
-                type = "relative-short",
+                type = "relative",
             },
         },
         hl = {
@@ -190,6 +205,7 @@ local c = {
 local left = {
     c.vim_mode,
     c.gitBranch,
+    c.location,
     c.gitDiffAdded,
   c.gitDiffRemoved,
     c.gitDiffChanged,
