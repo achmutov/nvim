@@ -1,1 +1,6 @@
-return { "danymat/neogen" }
+return {
+    "danymat/neogen",
+    config = function()
+        require("config.neogen")
+    end,
+}
