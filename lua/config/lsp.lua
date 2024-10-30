@@ -72,6 +72,9 @@ end)
 lsp.setup()
 
 vim.keymap.set("n", "<leader>lsp", ":LspR<CR>")
+vim.keymap.set("n", "<leader>li", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end)
 
 vim.diagnostic.config({
     virtual_text = true
