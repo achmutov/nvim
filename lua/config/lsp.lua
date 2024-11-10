@@ -1,5 +1,12 @@
 local lsp = require("lsp-zero")
 local navic = require("nvim-navic")
+require("fidget").setup {
+    notification = {
+            window = {
+            winblend = 0,
+        },
+    }
+}
 
 lsp.preset("recommended")
 
