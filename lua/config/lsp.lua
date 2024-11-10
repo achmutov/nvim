@@ -7,6 +7,17 @@ require("fidget").setup {
         },
     }
 }
+require("mason").setup()
+require("mason-lspconfig").setup {
+    ensure_installed = {
+        "clangd",
+        "denols",
+        "lua_ls",
+        "pylsp",
+        "ruff",
+        "rust_analyzer",
+    },
+}
 
 lsp.preset("recommended")
 
