@@ -18,6 +18,7 @@ require("neo-tree").setup {
     window = {
         mappings = {
             ["o"] = "system_open",
+            ["Z"] = "expand_all_nodes"
         },
     },
     commands = {
