@@ -13,9 +13,9 @@ require("mason-lspconfig").setup {
         "clangd",
         "denols",
         "lua_ls",
-        "pylsp",
+        "pyright",
         "ruff",
-        "rust_analyzer",
+        "rust_analyzer@2024-10-14",
     },
 }
 
