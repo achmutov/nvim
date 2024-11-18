@@ -23,16 +23,15 @@ lsp.preset("recommended")
 
 
 
--- Fix Undefined global "vim"
--- lsp.configure("lua-language-server", {
---     settings = {
---         Lua = {
---             diagnostics = {
---                 globals = { "vim" }
---             }
---         }
---     }
--- })
+lsp.configure("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" }
+            }
+        }
+    }
+})
 
 
 local cmp = require("cmp")
