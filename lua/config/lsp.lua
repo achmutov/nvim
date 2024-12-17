@@ -11,17 +11,30 @@ require("mason").setup()
 require("mason-lspconfig").setup {
     ensure_installed = {
         "clangd",
-        "denols",
         "lua_ls",
         "pyright",
         "ruff",
         "rust_analyzer@2024-10-14",
     },
 }
+local mason_registry = require("mason-registry")
 
 lsp.preset("recommended")
 
 
+local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server"
+lsp.configure("ts_ls", {
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { "vue" },
+      },
+    },
+  },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+})
 
 lsp.configure("lua_ls", {
     settings = {
