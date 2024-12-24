@@ -19,6 +19,13 @@ require("mason-lspconfig").setup {
 }
 local mason_registry = require("mason-registry")
 
+local lspconfig_defaults = require("lspconfig").util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+  "force",
+  lspconfig_defaults.capabilities,
+  require("blink.cmp").get_lsp_capabilities()
+)
+
 lsp.preset("recommended")
 
 
@@ -47,28 +54,28 @@ lsp.configure("lua_ls", {
 })
 
 
-local cmp = require("cmp")
-cmp.setup {
-    window = {
-        documentation = cmp.config.window.bordered(),
-    }
-}
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-  ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-  ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
-  ["<C-d>"] = cmp.mapping.scroll_docs(-2),
-  ["<C-f>"] = cmp.mapping.scroll_docs(2),
-})
+-- local cmp = require("cmp")
+-- cmp.setup {
+--     window = {
+--         documentation = cmp.config.window.bordered(),
+--     }
+-- }
+-- local cmp_select = {behavior = cmp.SelectBehavior.Select}
+-- local cmp_mappings = lsp.defaults.cmp_mappings({
+--   ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+--   ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+--   ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+--   ["<C-Space>"] = cmp.mapping.complete(),
+--   ["<C-d>"] = cmp.mapping.scroll_docs(-2),
+--   ["<C-f>"] = cmp.mapping.scroll_docs(2),
+-- })
+--
+-- cmp_mappings["<Tab>"] = nil
+-- cmp_mappings["<S-Tab>"] = nil
 
-cmp_mappings["<Tab>"] = nil
-cmp_mappings["<S-Tab>"] = nil
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
+-- lsp.setup_nvim_cmp({
+--   mapping = cmp_mappings
+-- })
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
