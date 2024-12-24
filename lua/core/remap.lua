@@ -24,6 +24,11 @@ vim.keymap.set("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>d", ":!cd %:p:h<CR>:cd %:p:h<CR>")
 
+vim.keymap.set("n", "<leader>mk", ":silent! make<CR>")
+
+vim.keymap.set("n", "<M-n>", ":cnext<CR>")
+vim.keymap.set("n", "<M-p>", ":cprev<CR>")
+
 -- tabs
 -- vim.api.nvim_set_keymap('n', '<leader>tn', ':tabnew<CR>', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>t<leader>', ':tabnext<CR>', { noremap = true, silent = true })
