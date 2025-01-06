@@ -22,6 +22,7 @@ require("neo-tree").setup {
     },
     window = {
         mappings = {
+            ["J"] = "toggle_node",
             ["P"] = { "toggle_preview", config = { use_float = false } },
             ["o"] = "system_open",
             ["Z"] = "expand_all_nodes"
