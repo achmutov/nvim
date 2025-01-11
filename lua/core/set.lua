@@ -53,3 +53,11 @@ vim.opt.guicursor = ""
 vim.g.netrw_liststyle = 3
 
 vim.opt.showtabline = 0
+
+---@diagnostic disable-next-line: lowercase-global
+function trail()
+    vim.api.nvim_buf_call(0, function()
+        vim.cmd('%s/ *$//')
+        vim.cmd('noh')
+    end)
+end
