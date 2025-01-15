@@ -1,6 +1,1 @@
-return {
-    "xiyaowong/transparent.nvim",
-    config = function()
-        require("config.transparent")
-    end,
-}
+return { "xiyaowong/transparent.nvim" }

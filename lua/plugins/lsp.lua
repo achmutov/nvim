@@ -7,6 +7,7 @@ return {
         { -- Optional
             "williamboman/mason.nvim",
             run = function()
+                ---@diagnostic disable-next-line: param-type-mismatch
                 pcall(vim.cmd, "MasonUpdate")
             end,
         },

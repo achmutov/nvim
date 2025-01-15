@@ -1,16 +1,21 @@
 vim.g.mapleader = " "
 
--- move lines with vscode-ish style
+-- Movements
 vim.keymap.set("v", "K", ":m '<-2<CR>gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv")
 
+-- Quickfix
+vim.keymap.set("n", "<M-n>", ":cnext<CR>")
+vim.keymap.set("n", "<M-p>", ":cprev<CR>")
+
+-- Exit nvim terminal
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
+-- Yank buffers
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("x", "<leader>p", '"_dP')
 
-vim.keymap.set("n", "<leader>te", ":!")
-
+-- Scroll
 vim.keymap.set("n", "<leader>sc", function()
     if vim.o.scrolloff == 99999 then
         vim.opt.scrolloff = 8
@@ -19,20 +24,8 @@ vim.keymap.set("n", "<leader>sc", function()
     end
 end, { noremap = true })
 
+-- Quick Aliases
 vim.keymap.set("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
-
-vim.keymap.set("n", "<leader>d", ":!cd %:p:h<CR>:cd %:p:h<CR>")
-
-vim.keymap.set("n", "<leader>P", "!pre-commit run --all-files<CR>")
-
 vim.keymap.set("n", "<leader>mk", ":silent! make<CR>")
-
-vim.keymap.set("n", "<M-n>", ":cnext<CR>")
-vim.keymap.set("n", "<M-p>", ":cprev<CR>")
-
--- tabs
--- vim.api.nvim_set_keymap('n', '<leader>tn', ':tabnew<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>t<leader>', ':tabnext<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>tm', ':tabmove<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>to', ':tabonly<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>te", ":!")
+vim.keymap.set("n", "<leader>c", ":!pre-commit run --all-files<CR>")
