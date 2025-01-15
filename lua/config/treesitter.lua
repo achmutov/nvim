@@ -11,7 +11,7 @@ local function big_file(_lang, buf)
     end
 end
 
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter.configs").setup({
     ensure_installed = {
         "c",
         "cpp",
@@ -29,4 +29,4 @@ require("nvim-treesitter.configs").setup {
 
         additional_vim_regex_highlighting = false,
     },
-}
+})

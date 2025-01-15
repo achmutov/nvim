@@ -4,10 +4,10 @@ vim.g.mapleader = " "
 vim.keymap.set("v", "K", ":m '<-2<CR>gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv")
 
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("x", "<leader>p", '"_dP')
 
 vim.keymap.set("n", "<leader>te", ":!")
 
@@ -18,7 +18,6 @@ vim.keymap.set("n", "<leader>sc", function()
         vim.opt.scrolloff = 99999
     end
 end, { noremap = true })
-
 
 vim.keymap.set("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 

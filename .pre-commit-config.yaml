@@ -9,6 +9,10 @@ repos:
   rev: v1.0.0
   hooks:
     - id: luacheck
+- repo: https://github.com/JohnnyMorganz/StyLua
+  rev: v2.0.2
+  hooks:
+    - id: stylua
 - repo: https://github.com/crate-ci/typos
   rev: v1.16.23
   hooks:

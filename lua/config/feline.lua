@@ -59,7 +59,7 @@ local c = {
     },
     location = {
         provider = function()
-            local navic = require "nvim-navic"
+            local navic = require("nvim-navic")
             if navic.is_available() then
                 return navic.get_location()
             end
@@ -207,7 +207,7 @@ local left = {
     c.gitBranch,
     c.location,
     c.gitDiffAdded,
-  c.gitDiffRemoved,
+    c.gitDiffRemoved,
     c.gitDiffChanged,
     c.separator,
 }

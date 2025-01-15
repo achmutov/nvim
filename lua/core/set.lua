@@ -9,11 +9,11 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Two tab indentation
-local two_space_filetypes = { 'r', 'javascript', "ts", "typescriptreact", 'html', 'css', 'rmd' }
-local indent_group = vim.api.nvim_create_augroup('IndentationSettings', { clear = true })
+local two_space_filetypes = { "r", "javascript", "ts", "typescriptreact", "html", "css", "rmd" }
+local indent_group = vim.api.nvim_create_augroup("IndentationSettings", { clear = true })
 
 -- Apply indentation settings based on filetypes
-vim.api.nvim_create_autocmd({ 'FileType' }, {
+vim.api.nvim_create_autocmd({ "FileType" }, {
     group = indent_group,
     pattern = two_space_filetypes,
     callback = function()
@@ -21,8 +21,8 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
         vim.opt_local.shiftwidth = 2
         vim.opt_local.tabstop = 2
         vim.opt_local.softtabstop = 2
-        vim.opt_local.expandtab = true  -- Ensure tabs are converted to spaces
-    end
+        vim.opt_local.expandtab = true -- Ensure tabs are converted to spaces
+    end,
 })
 
 -- vim.opt.wrap = false
@@ -57,7 +57,7 @@ vim.opt.showtabline = 0
 ---@diagnostic disable-next-line: lowercase-global
 function trail()
     vim.api.nvim_buf_call(0, function()
-        vim.cmd('%s/ *$//')
-        vim.cmd('noh')
+        vim.cmd("%s/ *$//")
+        vim.cmd("noh")
     end)
 end

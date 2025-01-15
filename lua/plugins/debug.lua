@@ -8,5 +8,5 @@ return {
     },
     config = function()
         require("config.debug")
-    end
+    end,
 }

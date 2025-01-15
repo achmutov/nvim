@@ -1,5 +1,5 @@
-local dap = require "dap"
-local ui = require "dapui"
+local dap = require("dap")
+local ui = require("dapui")
 
 require("nvim-dap-virtual-text").setup({})
 require("dapui").setup()
