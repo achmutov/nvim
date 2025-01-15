@@ -24,6 +24,8 @@ vim.keymap.set("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>d", ":!cd %:p:h<CR>:cd %:p:h<CR>")
 
+vim.keymap.set("n", "<leader>P", "!pre-commit run --all-files<CR>")
+
 vim.keymap.set("n", "<leader>mk", ":silent! make<CR>")
 
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
