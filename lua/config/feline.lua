@@ -57,49 +57,33 @@ local c = {
         left_sep = "block",
         right_sep = "block",
     },
-    location = {
-        provider = function()
-            local navic = require("nvim-navic")
-            if navic.is_available() then
-                return navic.get_location()
-            end
-            return ""
-        end,
+    gitDiffAdded = {
+        provider = "git_diff_added",
         hl = {
-            fg = "purple",
+            fg = "green",
             bg = "darkblue",
-            style = "bold",
         },
         left_sep = "block",
         right_sep = "block",
     },
-    -- gitDiffAdded = {
-    --     provider = "git_diff_added",
-    --     hl = {
-    --         fg = "green",
-    --         bg = "darkblue",
-    --     },
-    --     left_sep = "block",
-    --     right_sep = "block",
-    -- },
-    -- gitDiffRemoved = {
-    --     provider = "git_diff_removed",
-    --     hl = {
-    --         fg = "red",
-    --         bg = "darkblue",
-    --     },
-    --     left_sep = "block",
-    --     right_sep = "block",
-    -- },
-    -- gitDiffChanged = {
-    --     provider = "git_diff_changed",
-    --     hl = {
-    --         fg = "fg",
-    --         bg = "darkblue",
-    --     },
-    --     left_sep = "block",
-    --     right_sep = "right_filled",
-    -- },
+    gitDiffRemoved = {
+        provider = "git_diff_removed",
+        hl = {
+            fg = "red",
+            bg = "darkblue",
+        },
+        left_sep = "block",
+        right_sep = "block",
+    },
+    gitDiffChanged = {
+        provider = "git_diff_changed",
+        hl = {
+            fg = "fg",
+            bg = "darkblue",
+        },
+        left_sep = "block",
+        right_sep = "right_filled",
+    },
     separator = {
         provider = "",
     },
@@ -205,7 +189,6 @@ local c = {
 local left = {
     c.vim_mode,
     c.gitBranch,
-    c.location,
     c.gitDiffAdded,
     c.gitDiffRemoved,
     c.gitDiffChanged,
