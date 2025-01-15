@@ -8,12 +8,6 @@ require("gitsigns").setup {
             vim.keymap.set(mode, l, r, opts)
         end
 
-        local function gitsigns_visual_op(op)
-            return function()
-                return require("gitsigns")[op]({ vim.fn.line("."), vim.fn.line("v") })
-            end
-        end
-
         map('n', '<leader>hs', gs.stage_hunk)
         map('n', '<leader>hS', gs.stage_buffer)
         map('n', '<leader>hr', gs.reset_hunk)

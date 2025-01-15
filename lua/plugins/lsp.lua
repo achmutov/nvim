@@ -4,12 +4,12 @@ return {
     dependencies = {
         -- LSP Support
         {"neovim/nvim-lspconfig"},             -- Required
-        {                                      -- Optional
-            "williamboman/mason.nvim",
-            run = function()
-                pcall(vim.cmd, "MasonUpdate")
-            end,
-        },
+    {                                      -- Optional
+        "williamboman/mason.nvim",
+        run = function()
+            pcall(vim.cmd, "MasonUpdate")
+        end,
+    },
 
         -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
         -- used for completion, annotations and signatures of Neovim apis

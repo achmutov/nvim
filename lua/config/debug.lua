@@ -1,7 +1,7 @@
-dap = require "dap"
-ui = require "dapui"
+local dap = require "dap"
+local ui = require "dapui"
 
-require("nvim-dap-virtual-text").setup()
+require("nvim-dap-virtual-text").setup({})
 require("dapui").setup()
 
 vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
@@ -49,7 +49,7 @@ dap.configurations.python = {
 --         type = "lldb",
 --         request = "launch",
 --         name = "Launch the file",
---         -- program = function() 
+--         -- program = function()
 --         --     local path = vim.fn.input({
 --         --         prompt = "Path to executable: ",
 --         --         default = vim.fn.getcwd() .. "/",
@@ -83,7 +83,7 @@ dap.listeners.before.event_exited.dapui_config = function()
     ui.close()
 end
 
-cwd = vim.fn.getcwd() .. "/dap.lua"
+local cwd = vim.fn.getcwd() .. "/dap.lua"
 if vim.fn.filereadable(cwd) == 1 then
     dofile(cwd)
 end

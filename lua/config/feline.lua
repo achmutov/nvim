@@ -59,7 +59,7 @@ local c = {
     },
     location = {
         provider = function()
-            navic = package.loaded["nvim-navic"]
+            local navic = require "nvim-navic"
             if navic.is_available() then
                 return navic.get_location()
             end
