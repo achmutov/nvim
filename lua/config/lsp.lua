@@ -43,16 +43,6 @@ lsp.configure("ts_ls", {
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
 
-lsp.configure("lua_ls", {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" }
-            }
-        }
-    }
-})
-
 
 -- local cmp = require("cmp")
 -- cmp.setup {
