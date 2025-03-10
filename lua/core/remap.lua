@@ -8,6 +8,10 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv")
 vim.keymap.set("n", "<M-n>", ":cnext<CR>")
 vim.keymap.set("n", "<M-p>", ":cprev<CR>")
 
+-- By one line
+vim.keymap.set("n", "<M-b>", "<C-y>", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-f>", "<C-E>", { noremap = true, silent = true })
+
 -- Exit nvim terminal
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
