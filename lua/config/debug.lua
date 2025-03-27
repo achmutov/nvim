@@ -1,6 +1,9 @@
 local dap = require("dap")
 local ui = require("dapui")
 
+-- Setup annotation does indicate that the
+-- first parameter is optional, or can be nil/empty table.
+---@diagnostic disable-next-line: missing-fields
 require("nvim-dap-virtual-text").setup({})
 require("dapui").setup()
 
@@ -27,6 +30,8 @@ dap.adapters.lldb = {
     command = "/usr/bin/lldb-dap",
 }
 
+-- Default configurations
+
 dap.configurations.python = {
     {
         type = "python",
@@ -35,40 +40,25 @@ dap.configurations.python = {
         name = "Launch the file",
         program = "${file}",
     },
-    -- {
-    --     type = "python",
-    --     request = "launch",
-    --     name = "Launch the module",
-    --     module = "tesmod",
-    --     console = "integratedTerminal",
-    -- }
 }
 
--- dap.configurations.c = {
---     {
---         type = "lldb",
---         request = "launch",
---         name = "Launch the file",
---         -- program = function()
---         --     local path = vim.fn.input({
---         --         prompt = "Path to executable: ",
---         --         default = vim.fn.getcwd() .. "/",
---         --         completion = "file",
---         --     })
---         --     return (path and path ~= "") and path or dap.ABORT
---         -- end,
---         program = "target/debug/cursrs",
---         -- initCommands = {
---         --     "settings set target.input-path ${workspaceFolder}/input.txt",
---         -- },
---         args = {
---             "100", "pln", "uah"
---         }
---     },
--- }
-
--- dap.configurations.cpp = dap.configurations.c
--- dap.configurations.rust = dap.configurations.c
+dap.configurations.c = {
+    {
+        type = "lldb",
+        request = "launch",
+        name = "Launch the file",
+        program = function()
+            local path = vim.fn.input({
+                prompt = "Path to executable: ",
+                default = vim.fn.getcwd() .. "/",
+                completion = "file",
+            })
+            return (path and path ~= "") and path or dap.ABORT
+        end,
+    },
+}
+dap.configurations.cpp = dap.configurations.c
+dap.configurations.rust = dap.configurations.c
 
 dap.listeners.before.attach.dapui_config = function()
     ui.open()
