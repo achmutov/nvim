@@ -18,6 +18,7 @@ require("nvim-treesitter.configs").setup({
         "python",
         "rust",
         "lua",
+        "latex",
     },
     sync_install = false,
     auto_install = true,
