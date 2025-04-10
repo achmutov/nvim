@@ -1,5 +1,7 @@
 local lsp = require("lsp-zero")
 local navic = require("nvim-navic")
+local util = require("lspconfig.util")
+
 require("fidget").setup({
     notification = {
         window = {
@@ -39,6 +41,19 @@ lsp.configure("ts_ls", {
         },
     },
     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+})
+
+lsp.configure("gh_actions_ls", {
+    filetypes = { 'yaml.github' },
+    root_dir = util.root_pattern('.github'),
+    single_file_support = true,
+    capabilities = {
+      workspace = {
+        didChangeWorkspaceFolders = {
+          dynamicRegistration = true,
+        },
+      },
+    },
 })
 
 lsp.set_preferences({
