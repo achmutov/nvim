@@ -56,6 +56,16 @@ lsp.configure("gh_actions_ls", {
     },
 })
 
+lsp.configure("rust_analyzer", {
+    settings = {
+        ["rust-analyzer"] = {
+            check = {
+                command = "clippy",
+            },
+        },
+    },
+})
+
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
