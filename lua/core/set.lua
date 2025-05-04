@@ -10,7 +10,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Two tab indentation
-local two_space_filetypes = { "r", "javascript", "ts", "typescriptreact", "html", "css", "rmd" }
+local two_space_filetypes = { "r", "javascript", "ts", "typescriptreact", "html", "css", "rmd", "nix" }
 local indent_group = vim.api.nvim_create_augroup("IndentationSettings", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
     group = indent_group,
