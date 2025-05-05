@@ -67,7 +67,7 @@ vim.filetype.add({
 })
 
 vim.filetype.add({
-  pattern = {
-    ['.*/%.github[%w/]+workflows[%w/]+.*%.ya?ml'] = 'yaml.github',
-  },
+    pattern = {
+        [".*/%.github[%w/]+workflows[%w/]+.*%.ya?ml"] = "yaml.github",
+    },
 })

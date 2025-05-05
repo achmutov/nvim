@@ -44,15 +44,15 @@ lsp.configure("ts_ls", {
 })
 
 lsp.configure("gh_actions_ls", {
-    filetypes = { 'yaml.github' },
-    root_dir = util.root_pattern('.github'),
+    filetypes = { "yaml.github" },
+    root_dir = util.root_pattern(".github"),
     single_file_support = true,
     capabilities = {
-      workspace = {
-        didChangeWorkspaceFolders = {
-          dynamicRegistration = true,
+        workspace = {
+            didChangeWorkspaceFolders = {
+                dynamicRegistration = true,
+            },
         },
-      },
     },
 })
 
