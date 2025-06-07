@@ -9,7 +9,9 @@ require("fidget").setup({
         },
     },
 })
-require("mason").setup()
+require("mason").setup({
+    PATH = "append",
+})
 require("mason-lspconfig").setup({
     ensure_installed = {
         "clangd",
@@ -19,16 +21,12 @@ require("mason-lspconfig").setup({
         "rust_analyzer@2024-10-14",
     },
 })
-local mason_registry = require("mason-registry")
 
 local lspconfig_defaults = require("lspconfig").util.default_config
 lspconfig_defaults.capabilities =
     vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("blink.cmp").get_lsp_capabilities())
 
-lsp.preset("recommended")
-
-local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-    .. "/node_modules/@vue/language-server"
+local vue_language_server_path = vim.fn.expand("$MASON/bin/vue-language-server")
 
 lsp.configure("ts_ls", {
     init_options = {
@@ -63,16 +61,6 @@ lsp.configure("rust_analyzer", {
                 command = "clippy",
             },
         },
-    },
-})
-
-lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = "E",
-        warn = "W",
-        hint = "H",
-        info = "I",
     },
 })
 
