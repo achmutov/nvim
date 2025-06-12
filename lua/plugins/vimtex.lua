@@ -3,4 +3,5 @@ return {
     config = function()
         require("config.vimtex")
     end,
+    ft = { "tex" },
 }
