@@ -26,14 +26,21 @@ local lspconfig_defaults = require("lspconfig").util.default_config
 lspconfig_defaults.capabilities =
     vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("blink.cmp").get_lsp_capabilities())
 
-local vue_language_server_path = vim.fn.expand("$MASON/bin/vue-language-server")
+local function nodeSystemOrMason(name, node_module)
+    local exepath = vim.fn.exepath(name)
+    if string.find(exepath, "mason") then
+        return vim.fn.expand("$MASON/packages/" .. name .. "/node_modules/" .. node_module)
+    else
+        return vim.fs.dirname(vim.fs.dirname(exepath)) .. "/lib/node_modules/" .. node_module
+    end
+end
 
 lsp.configure("ts_ls", {
     init_options = {
         plugins = {
             {
                 name = "@vue/typescript-plugin",
-                location = vue_language_server_path,
+                location = nodeSystemOrMason("vue-language-server", "@vue/language-server"),
                 languages = { "vue" },
             },
         },
