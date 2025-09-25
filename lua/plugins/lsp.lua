@@ -1,9 +1,6 @@
 return {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v4.x",
+    "neovim/nvim-lspconfig",
     dependencies = {
-        -- LSP Support
-        { "neovim/nvim-lspconfig" }, -- Required
         { -- Optional
             "williamboman/mason.nvim",
             run = function()
