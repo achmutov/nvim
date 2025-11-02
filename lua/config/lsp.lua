@@ -94,7 +94,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("i", "<C-k>", function()
             vim.lsp.buf.signature_help()
         end, opts)
-    end
+    end,
 })
 
 vim.keymap.set("n", "<leader>lsp", ":LspR<CR>")
