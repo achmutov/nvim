@@ -18,6 +18,8 @@ vim.keymap.set("n", "<leader><F4>", dap.step_out)
 vim.keymap.set("n", "<leader><F5>", dap.step_back)
 vim.keymap.set("n", "<leader><F11>", dap.terminate)
 vim.keymap.set("n", "<leader><F12>", dap.restart)
+vim.keymap.set("n", "<leader>9", dap.up, { noremap = true })
+vim.keymap.set("n", "<leader>0", dap.down, { noremap = true })
 
 dap.adapters.python = {
     type = "executable",
@@ -28,6 +30,17 @@ dap.adapters.python = {
 dap.adapters.lldb = {
     type = "executable",
     command = "/usr/bin/lldb-dap",
+}
+
+dap.adapters.codelldb = {
+    type = "executable",
+    command = vim.fn.expand(vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb"),
+}
+
+dap.adapters.gdb = {
+    type = "executable",
+    command = "gdb",
+    args = { "--quiet", "--interpreter=dap" },
 }
 
 -- Default configurations
