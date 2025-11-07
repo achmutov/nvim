@@ -1,5 +1,17 @@
+local signs = {
+    add = { text = "+" },
+    change = { text = "-" },
+    delete = { text = "_" },
+    topdelete = { text = "‾" },
+    changedelete = { text = "~" },
+    untracked = { text = "┆" },
+}
+
 require("gitsigns").setup({
-    linehl = true,
+    numhl = true,
+    culhl = true,
+    signs = signs,
+    signs_staged = signs,
     on_attach = function(buffnr)
         local gs = package.loaded.gitsigns
 
