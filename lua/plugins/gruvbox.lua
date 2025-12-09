@@ -5,7 +5,7 @@ return {
     config = function()
         -- Optionally configure and load the colorscheme
         -- directly inside the plugin declaration.
-        vim.o.background = "light"
+        vim.o.background = "dark"
         vim.g.gruvbox_material_transparent_background = 1
         vim.cmd.colorscheme("gruvbox-material")
     end,
