@@ -71,3 +71,5 @@ vim.filetype.add({
         [".*/%.github[%w/]+workflows[%w/]+.*%.ya?ml"] = "yaml.github",
     },
 })
+
+vim.opt.exrc = true
